@@ -35,6 +35,8 @@ class FormResourceList(Resource):
         : sortOrder:- Order for sorting (asc/desc) (default: desc)
         """
         try:
+            token = request.headers.get('Authorization', None)
+            current_app.logger.info(f"Token: {token}")
             auth_form_details = ApplicationService.get_authorised_form_list(
                 token=request.headers["Authorization"]
             )

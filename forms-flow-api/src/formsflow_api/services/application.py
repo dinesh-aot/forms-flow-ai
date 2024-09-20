@@ -69,6 +69,7 @@ class ApplicationService:
         the no of function calls.
         """
         response = BPMService.get_auth_form_details(token=token)
+        current_app.logger.info(f"RESPONSE: {response}")
         return response
 
     @staticmethod
